@@ -24,3 +24,9 @@ jobs:
 
     - name: Rodar o build Maven
       run: mvn clean install --no-transfer-progress
+
+    - name: Publish to GitHub Packages
+      run: ./gradlew publish
+      env:
+        USERNAME: ${{ github.actor }}
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
